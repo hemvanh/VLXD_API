@@ -14,33 +14,27 @@ const Conn = new Sequelize('heroku_c53a18f60a793d9', 'b8558b412c7ee2', 'bf3ad615
     idle: 20000,
   },
 })
-
-const Sanpham = Conn.define(
-  'sanpham',
-  {
-    ma: {type: Sequelize.STRING, allowNull: false},
-    ten: {type: Sequelize.STRING, allowNull: false},
-    donvi: {type: Sequelize.STRING, allowNull: true},
-    gianiemyet: {type: Sequelize.INTEGER, allowNull: true},
-  },
-  {
-    freezeTableName: true,
-  }
-)
-
-import _ from 'lodash'
-import Faker from 'faker'
-
-Conn.sync({force: true}).then(() => {
-  console.log('DB Structure created ...')
-  _.times(10, () => {
-    return Sanpham.create({
-      ma: Faker.address.countryCode(),
-      ten: Faker.commerce.productName(),
-      donvi: Faker.commerce.productMaterial(),
-      gianiemyet: Faker.commerce.price(),
-    })
-  })
+// eslint-disable-next-line no-unused-vars
+const Product = Conn.define('product', {
+  code: {type: Sequelize.STRING, allowNull: false},
+  name: {type: Sequelize.STRING, allowNull: false},
+  unit: {type: Sequelize.STRING, allowNull: true},
+  listingPrice: {type: Sequelize.INTEGER, allowNull: true},
 })
+
+// Generating demo Data
+// import _ from 'lodash'
+// import Faker from 'faker'
+// Conn.sync({force: true}).then(() => {
+//   console.log('DB Structure created ...')
+//   _.times(10, () => {
+//     return Product.create({
+//       code: Faker.address.countryCode(),
+//       name: Faker.commerce.productName(),
+//       unit: Faker.commerce.productMaterial(),
+//       listingPrice: Faker.commerce.price(),
+//     })
+//   })
+// })
 
 export default Conn
