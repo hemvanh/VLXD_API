@@ -8,12 +8,14 @@ const Product = new GraphQLObjectType({
     return {
       id: {
         type: GraphQLInt,
+        description: 'auto-gen id from Sequelize.',
         resolve(product) {
           return product.id
         },
       },
       code: {
         type: GraphQLString,
+        description: 'This code should be controlled by user.',
         resolve(product) {
           return product.code
         },
@@ -32,6 +34,8 @@ const Product = new GraphQLObjectType({
       },
       listingPrice: {
         type: GraphQLInt,
+        description:
+          'This is only a listing price for reference, the real selling/buying price would be different for each transaction',
         resolve(product) {
           return product.listingPrice
         },
@@ -46,7 +50,16 @@ const query = new GraphQLObjectType({
   fields: () => {
     return {
       listProduct: {
-        description: 'List all Products ...',
+        description: `List all Products ###
+        {
+          listProduct {
+            id
+            name
+            code
+            unit
+            listingPrice
+          }
+        }`,
         type: new GraphQLList(Product),
         resolve() {
           return db.models.product.findAll()
