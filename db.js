@@ -27,7 +27,7 @@ const Product = Conn.define('product', {
 // import Faker from 'faker'
 // Conn.sync({force: true}).then(() => {
 //   console.log('DB Structure created ...')
-//   _.times(10, () => {
+//   _.times(100, () => {
 //     return Product.create({
 //       code: Faker.address.countryCode(),
 //       name: Faker.commerce.productName(),
