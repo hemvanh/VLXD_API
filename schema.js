@@ -1,5 +1,7 @@
 import {GraphQLSchema, GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList} from 'graphql'
 import db from './db'
+import Sequelize from 'sequelize'
+const Op = Sequelize.Op
 
 const Product = new GraphQLObjectType({
   name: 'Product',
@@ -69,8 +71,35 @@ const query = new GraphQLObjectType({
   },
 })
 
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  description: 'This is for create/update/delete operation',
+  fields() {
+    return {
+      deleteProduct: {
+        type: GraphQLInt,
+        args: {
+          input: {
+            type: new GraphQLList(GraphQLInt),
+          },
+        },
+        resolve(_, {input}) {
+          return db.models.product.destroy({
+            where: {
+              id: {
+                [Op.in]: input,
+              },
+            },
+          })
+        },
+      },
+    }
+  },
+})
+
 const SCHEMA = new GraphQLSchema({
   query,
+  mutation,
 })
 
 export default SCHEMA

@@ -23,11 +23,11 @@ const Product = Conn.define('product', {
 })
 
 // Generating demo Data
-// import _ from 'lodash'
+// import _d from 'lodash'
 // import Faker from 'faker'
 // Conn.sync({force: true}).then(() => {
 //   console.log('DB Structure created ...')
-//   _.times(100, () => {
+//   _d.times(100, () => {
 //     return Product.create({
 //       code: Faker.address.countryCode(),
 //       name: Faker.commerce.productName(),
