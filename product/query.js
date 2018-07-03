@@ -1,6 +1,6 @@
 import {GraphQLList} from 'graphql'
 import db from '../db'
-import Product from './type'
+import {Product} from './type'
 
 export default {
   listProduct: {
