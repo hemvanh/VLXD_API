@@ -37,4 +37,5 @@ const Product = Conn.define('product', {
 //   })
 // })
 
+Conn.authenticate()
 export default Conn
