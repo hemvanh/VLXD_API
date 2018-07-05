@@ -1,6 +1,6 @@
-import {GraphQLObjectType, GraphQLInt, GraphQLString} from 'graphql'
+import {GraphQLObjectType, GraphQLInputObjectType, GraphQLInt, GraphQLString, GraphQLNonNull} from 'graphql'
 
-export default new GraphQLObjectType({
+export const Product = new GraphQLObjectType({
   name: 'Product',
   description: 'Product Information ...',
   fields: () => {
@@ -41,4 +41,27 @@ export default new GraphQLObjectType({
       },
     }
   },
+})
+
+export const ProductInput = new GraphQLInputObjectType({
+  name: 'ProductInput',
+  description: 'This is the Input for Product type',
+  fields: () => ({
+    id: {
+      // no need for GraphQLNonNull wrap, coz this Input's id is used in upsert later
+      type: GraphQLInt,
+    },
+    code: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    name: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    unit: {
+      type: GraphQLString,
+    },
+    listingPrice: {
+      type: GraphQLInt,
+    },
+  }),
 })
