@@ -26,6 +26,6 @@ app.use('/api', (0, _expressGraphql2.default)({
   graphiql: true
 }));
 
-app.listen(APP_PORT, function () {
+app.listen(process.env.PORT || APP_PORT, function () {
   console.log('VLXD_API listening on port ' + APP_PORT + ' ...');
 });
