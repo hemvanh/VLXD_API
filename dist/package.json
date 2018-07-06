@@ -4,9 +4,6 @@
   "description": "The API for VLXD Tran Ngoc",
   "author": "ET",
   "license": "ISC",
-  "scripts": {
-    "postinstall": "npm install express"
-  },
   "dependencies": {
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
