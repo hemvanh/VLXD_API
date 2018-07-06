@@ -5,7 +5,7 @@ import rename from 'gulp-rename'
 
 gulp.task('clean', () => del('dist'))
 gulp.task('copy', ['clean'], () => gulp.src('../VLXD/dist/pwa-mat/**').pipe(gulp.dest('./dist')))
-gulp.task('package', () =>
+gulp.task('package', ['clean'], () =>
   gulp
     .src('./dist.json')
     .pipe(rename('package.json'))
