@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "db": "npx babel-node db",
     "api": "npx babel-node server",
-    "gulp": "gulp es6"
+    "build": "gulp es6"
   },
   "author": "ET",
   "license": "ISC",

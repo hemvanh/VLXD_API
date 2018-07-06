@@ -14,6 +14,6 @@ app.use(
   })
 )
 
-app.listen(APP_PORT, () => {
+app.listen(process.env.PORT || APP_PORT, () => {
   console.log(`VLXD_API listening on port ${APP_PORT} ...`)
 })
