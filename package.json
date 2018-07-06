@@ -1,0 +1,19 @@
+{
+  "name": "pwa-vlxd",
+  "version": "1.0.0",
+  "description": "The API for VLXD Tran Ngoc",
+  "author": "ET",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "faker": "^4.1.0",
+    "graphql": "^0.13.2",
+    "lodash": "^4.17.10",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.10"
+  },
+  "engines": {
+    "node": "10.4.0"
+  }
+}
